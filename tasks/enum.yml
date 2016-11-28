@@ -17,5 +17,5 @@
         fi
     done
 
-    echo "$(date -R) DONE. SSH to "{{ item.key }}" using $IP, with  username 'coreos'."
+    echo "$(date -R) DONE. SSH to "{{ item.key }}" using ssh coreos@$IP" >> ip.md
   with_dict: "{{ vms }}"
