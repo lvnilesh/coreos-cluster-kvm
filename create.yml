@@ -74,11 +74,16 @@
     - include: tasks/start.yml vms={{ coreos_vm_info }}
       tags: vms
 
+    - include: tasks/enum.yml vms={{ coreos_vm_info }}
+      tags: vms
+      
     # Pause for N seconds to start up all vms. Note that this pause is likely
     # to insufficient, but at least it gives few seconds to the virtual
     # machines to get things going
     - pause: seconds={{ vm_startup_pause }}
       tags: vms
+
+    - debug: msg="will do nothing to ({{ num_of_coreos_vms }}) CoreOS virtual machine(s) => {{ coreos_vms | sort | join(', ') }}"
 
 # ----------------------------------------------------------
 # eof
