@@ -1,7 +1,7 @@
 ---
 
 use_my_public_key:          true
-my_public_key_file:         "/root/.ssh/id_rsa.pub"
+my_public_key_file:         ".ssh/id_rsa.pub"
 
 cloud_init_profile:         "basic"
 
