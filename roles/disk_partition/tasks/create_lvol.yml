@@ -28,10 +28,10 @@
   lvol: vg="{{ vg_name }}" lv="HDD-CoreOS-VM{{ item }}"
         size="{{ vm_image_info['virtual-size'] }}B"
         state=present
-  with_sequence: start=1 end=3 stride=1
+  with_sequence: start=1 end={{ vm_count }} stride=1
 
 - name: copy vm image to logical volumes
   command: dd if="{{ remote_vm_image_dir }}/{{ vm_image_name }}"
               of="{{ vg_dev_dir }}/HDD-CoreOS-VM{{ item }}"
               bs=1M
-  with_sequence: start=1 end=3 stride=1
+  with_sequence: start=1 end={{ vm_count }} stride=1
