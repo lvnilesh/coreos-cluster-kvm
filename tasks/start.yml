@@ -5,4 +5,4 @@
   virt: name="{{ item.key }}"
         command=start
 #  when: item.value.state != "running"
-  with_dict: vms
+  with_dict: "{{ vms }}"
