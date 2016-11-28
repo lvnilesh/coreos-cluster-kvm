@@ -1,7 +1,7 @@
 ---
 
 use_my_public_key:          true
-my_public_key_file:         ".ssh/id_rsa.pub"
+my_public_key_file:         "/root/.ssh/id_rsa.pub"
 
 cloud_init_profile:         "basic"
 
@@ -12,7 +12,7 @@ request_discovery_url:      https://discovery.etcd.io/new
 default_discovery_url:      https://discovery.etcd.io
 
 # obtain discovery token from https://discovery.etcd.io/new
-discovery_token:            ""
+discovery_token:            "12a8f798d202915c1a842b31ba48da2e"
 
 # or provide one via playbook variable
 # discovery_token:            "your-token-here"
