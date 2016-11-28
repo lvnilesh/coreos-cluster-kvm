@@ -24,3 +24,6 @@ vm_startup_pause:         10      # seconds
 # vm_cmd_delay:             1
 
 vm_shutdown_timeout:      30      # seconds
+
+vm_image_name_compressed:   "coreos_production_qemu_image.img.bz2"
+vm_image_name:              "coreos_production_qemu_image.img"
