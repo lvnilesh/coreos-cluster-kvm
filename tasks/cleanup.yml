@@ -9,7 +9,7 @@
   file: state=absent
         name="{{ vm_image_storage_fs_dir }}/{{ vm_image_name_prefix }}-{{ item }}.img"
   when: vg_name is not defined or vg_name == "none"
-  with_sequence: vm_count
+  with_sequence: start=1 end={{ vm_count }} stride=1
   retries: 3
   delay: 16
 
@@ -31,6 +31,6 @@
   lvol: state=absent force=yes
         vg="{{ vg_name }}" lv="HDD-CoreOS-VM{{ item }}"
   when: vg_name is defined and vg_name != ""
-  with_sequence: vm_count
+  with_sequence: start=1 end={{ vm_count }} stride=1
   retries: 3
   delay: 16

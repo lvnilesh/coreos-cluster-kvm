@@ -23,12 +23,14 @@
     - name: destroy coreos virtual machines
       virt: name="{{ item }}"
             command=undefine
-      with_items: coreos_vms
+      with_items:
+        - "{{ coreos_vms }}"
 
     - name: shutdown (unconditional) coreos virtual machines
       virt: name="{{ item }}"
             command=shutdown
-      with_items: coreos_vms
+      with_items:
+        - "{{ coreos_vms }}"
 
 #    - include: tasks/destroy.yml  vms={{ coreos_vms }}
 #    - include: tasks/shutdown_unconditional.yml vms={{ coreos_vms }}
