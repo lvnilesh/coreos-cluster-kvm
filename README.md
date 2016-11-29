@@ -23,6 +23,17 @@
     git@github.com:lvnilesh/coreos-cluster-kvm.git
 
     Now create, destroy whatever.
+    
+    
+    
+    cd /home/cloudgenius/coreos-cluster-kvm
+    ansible-playbook destroy.yml
+    rm -rf /var/lib/libvirt/dnsmasq/virbr0.status
+    rm -rf /home/cloudgenius/coreos-cluster-kvm/ip.md
+    ansible-playbook create.yml
+    cat /var/lib/libvirt/dnsmasq/virbr0.status
+    cat /home/cloudgenius/coreos-cluster-kvm/ip.md
+
 
 CoreOS cluster on KVM
 =====================
