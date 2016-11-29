@@ -20,6 +20,10 @@
     coreos_production_qemu_image.img
 
 
+    git@github.com:lvnilesh/coreos-cluster-kvm.git
+
+    Now create, destroy whatever.
+
 CoreOS cluster on KVM
 =====================
 
