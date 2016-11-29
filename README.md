@@ -10,6 +10,7 @@
     cat /etc/qemu/bridge.conf
     ip address show
     
+    systemctl enable libvirtd.service
     systemctl start virtlogd.socket
     systemctl enable virtlogd.socket
 
