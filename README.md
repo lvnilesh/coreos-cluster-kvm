@@ -24,16 +24,16 @@
 
     Now create, destroy whatever.
     
-    
+#### clean stale ip leases before creating
     
     cd /home/cloudgenius/coreos-cluster-kvm
+    sudo su
     ansible-playbook destroy.yml
     rm -rf /var/lib/libvirt/dnsmasq/virbr0.status
     rm -rf /home/cloudgenius/coreos-cluster-kvm/ip.md
     ansible-playbook create.yml
     cat /var/lib/libvirt/dnsmasq/virbr0.status
     cat /home/cloudgenius/coreos-cluster-kvm/ip.md
-
 
 CoreOS cluster on KVM
 =====================
