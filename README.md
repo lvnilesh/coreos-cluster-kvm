@@ -1,19 +1,19 @@
 ## Prepare
 
-sudo dnf install -y openssh qemu-kvm htop qemu-kvm libvirt virt-install bridge-utils
-sudo dnf install -y libguestfs-tools libvirt-client genisoimage cifs-utils cloud-utils
-sudo dnf group install -y with-optional virtualization
-sudo dnf install -y git-core vim htop ansible libselinux-python
-sudo systemctl start libvirtd
-sudo systemctl enable libvirtd
-lsmod | grep kvm
-cat /etc/qemu/bridge.conf
-ip address show
+    sudo dnf install -y openssh qemu-kvm htop qemu-kvm libvirt virt-install bridge-utils
+    sudo dnf install -y libguestfs-tools libvirt-client genisoimage cifs-utils cloud-utils
+    sudo dnf group install -y with-optional virtualization
+    sudo dnf install -y git-core vim htop ansible libselinux-python
+    sudo systemctl start libvirtd
+    sudo systemctl enable libvirtd
+    lsmod | grep kvm
+    cat /etc/qemu/bridge.conf
+    ip address show
 
 
-save your ~/.ssh/id_rsa.pub or  generate using ssh-keygen
-vi vm_image_name.txt with this
-coreos_production_qemu_image.img
+    save your ~/.ssh/id_rsa.pub or  generate using ssh-keygen
+    vi vm_image_name.txt with this
+    coreos_production_qemu_image.img
 
 
 CoreOS cluster on KVM
