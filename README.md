@@ -34,6 +34,26 @@
     ansible-playbook create.yml
     cat /var/lib/libvirt/dnsmasq/virbr0.status
     cat /home/cloudgenius/coreos-cluster-kvm/ip.md
+    
+    
+#### ~/.ssh/config
+
+    Host jumpbox
+      HostName 10.0.1.58
+      ForwardAgent yes
+      IdentityFile ~/.ssh/id_rsa
+      StrictHostKeyChecking ask
+      User cloudgenius
+
+    Host 192.168.122.*
+      ProxyCommand ssh -q -W %h:%p jumpbox
+      ForwardAgent yes
+      IdentityFile ~/.ssh/id_rsa
+      User core
+      
+    Host *
+      ForwardAgent yes
+      ForwardX11 yes
 
 CoreOS cluster on KVM
 =====================
