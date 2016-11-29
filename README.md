@@ -9,6 +9,9 @@
     lsmod | grep kvm
     cat /etc/qemu/bridge.conf
     ip address show
+    
+    systemctl start virtlogd.socket
+    systemctl enable virtlogd.socket
 
 
     save your ~/.ssh/id_rsa.pub or  generate using ssh-keygen
