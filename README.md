@@ -1,3 +1,60 @@
+## Prepare
+
+    sudo dnf install -y openssh qemu-kvm htop qemu-kvm libvirt virt-install bridge-utils
+    sudo dnf install -y libguestfs-tools libvirt-client genisoimage cifs-utils cloud-utils
+    sudo dnf group install -y with-optional virtualization
+    sudo dnf install -y git-core vim htop ansible libselinux-python
+    sudo systemctl start libvirtd
+    sudo systemctl enable libvirtd
+    lsmod | grep kvm
+    cat /etc/qemu/bridge.conf
+    ip address show
+    
+    systemctl enable libvirtd.service
+    systemctl start virtlogd.socket
+    systemctl enable virtlogd.socket
+
+
+    save your ~/.ssh/id_rsa.pub or  generate using ssh-keygen
+    vi vm_image_name.txt with this
+    coreos_production_qemu_image.img
+
+
+    git@github.com:lvnilesh/coreos-cluster-kvm.git
+
+    Now create, destroy whatever.
+    
+#### clean stale ip leases before creating
+    
+    cd /home/cloudgenius/coreos-cluster-kvm
+    sudo su
+    ansible-playbook destroy.yml
+    rm -rf /var/lib/libvirt/dnsmasq/virbr0.status
+    rm -rf /home/cloudgenius/coreos-cluster-kvm/ip.md
+    ansible-playbook create.yml
+    cat /var/lib/libvirt/dnsmasq/virbr0.status
+    cat /home/cloudgenius/coreos-cluster-kvm/ip.md
+    
+    
+#### ~/.ssh/config
+
+    Host jumpbox
+      HostName 10.0.1.58
+      ForwardAgent yes
+      IdentityFile ~/.ssh/id_rsa
+      StrictHostKeyChecking ask
+      User cloudgenius
+
+    Host 192.168.122.*
+      ProxyCommand ssh -q -W %h:%p jumpbox
+      ForwardAgent yes
+      IdentityFile ~/.ssh/id_rsa
+      User core
+      
+    Host *
+      ForwardAgent yes
+      ForwardX11 yes
+
 CoreOS cluster on KVM
 =====================
 
